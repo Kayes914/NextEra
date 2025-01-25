@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tech-bubble {
+  @apply px-4 py-2 bg-[#2A2A3F] text-[#00D1FF] rounded-full text-sm font-medium
+  border border-[#00D1FF]/30 backdrop-blur-sm
+  hover:bg-[#00D1FF]/10 transition-colors duration-300;
+}
