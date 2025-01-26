@@ -139,6 +139,16 @@ const Services = () => {
   }
 
   const renderServiceContent = () => {
+    // Add this images mapping object inside renderServiceContent
+    const serviceImages = {
+      'Web': '/images/services/web.png',
+      'Mobile App': '/images/services/app.png',
+      'UI/UX': '/images/services/ui ux.png',
+      'Graphic Design': '/images/services/graphic.png',
+      'Digital Marketing': '/images/services/marketing.png',
+      'Video Editing': '/images/services/video.png'
+    };
+
     switch(selectedService) {
       case 'Web':
         return (
@@ -200,9 +210,9 @@ const Services = () => {
             <div className="relative flex items-center justify-center">
               <div className="relative w-[500px] h-[500px] overflow-hidden rounded-2xl">
                 <img 
-                  src="/screen1.jpg"
+                  src={serviceImages['Web']}
                   alt="Web Development"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-scale-down"
                 />
               </div>
             </div>
@@ -289,9 +299,9 @@ const Services = () => {
             <div className="relative flex items-center justify-center">
               <div className="relative w-[500px] h-[500px] overflow-hidden rounded-2xl">
                 <img 
-                  src="/screen1.jpg"
+                  src={serviceImages[selectedService]}
                   alt={titles[selectedService]}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-scale-down"
                 />
               </div>
             </div>
