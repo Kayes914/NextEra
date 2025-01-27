@@ -141,10 +141,10 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {/* Contact Form */}
               <div className="md:col-span-2">
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-7">
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 sm:p-7">
                   <form className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
@@ -225,7 +225,7 @@ const Contact = () => {
               </div>
 
               {/* Contact Information */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5">
                   <div className="text-[#00D1FF] mb-3">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

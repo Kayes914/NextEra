@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="w-full bg-[#181824] text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold mb-4">NextEra</h3>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="space-y-4">
             <h3 className="text-xl font-bold mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li className="text-gray-400 hover:text-[#00D1FF] transition-colors duration-300 cursor-pointer">Web Development</li>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="space-y-4">
             <h3 className="text-xl font-bold mb-4">Contact Info</h3>
             <ul className="space-y-4">
               <li className="flex items-center space-x-3">
@@ -67,9 +67,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+      <div className="border-t border-gray-800 mt-8 sm:mt-12">
+        <div className="container mx-auto px-4 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
             <p className="text-gray-400 text-sm">
               © {currentYear} NextEra. All rights reserved.
             </p>

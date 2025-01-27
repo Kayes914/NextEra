@@ -85,7 +85,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start mt-12">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start mt-8 sm:mt-12">
           {/* Left side - Image with heading */}
           <div className="space-y-6">
             <div className="relative pl-5">
@@ -134,7 +134,7 @@ Let us help you unlock the potential of technology to accelerate your business g
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="text-center p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
                   <CountingNumber value={30} />
                   <p className="text-gray-300 font-medium text-sm">

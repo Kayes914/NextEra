@@ -166,7 +166,7 @@ const Services = () => {
               </div>
 
               {/* Services Grid */}
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 sm:gap-x-8">
                 {servicesList.Web.map((service, index) => (
                   <div 
                     key={index} 
@@ -189,12 +189,12 @@ const Services = () => {
                   </div>
                   <div className="h-[1px] flex-grow bg-gradient-to-r from-[#00D1FF]/10 to-transparent"></div>
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {techStacks.Web.map((tech, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center gap-2 px-4 py-2 bg-[#1E1E2E] rounded-full
-                        border border-[#00D1FF]/10"
+                      className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#1E1E2E] rounded-full
+                        border border-[#00D1FF]/10 text-sm sm:text-base"
                     >
                       <tech.icon className="text-[#00D1FF] text-lg" />
                       <span className="text-sm text-gray-300">
@@ -255,7 +255,7 @@ const Services = () => {
               </div>
 
               {/* Services Grid */}
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 sm:gap-x-8">
                 {servicesList[selectedService].map((service, index) => (
                   <div 
                     key={index} 
@@ -278,12 +278,12 @@ const Services = () => {
                   </div>
                   <div className="h-[1px] flex-grow bg-gradient-to-r from-[#00D1FF]/10 to-transparent"></div>
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {techStacks[selectedService].map((tech, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center gap-2 px-4 py-2 bg-[#1E1E2E] rounded-full
-                        border border-[#00D1FF]/10"
+                      className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#1E1E2E] rounded-full
+                        border border-[#00D1FF]/10 text-sm sm:text-base"
                     >
                       <tech.icon className="text-[#00D1FF] text-lg" />
                       <span className="text-sm text-gray-300">
@@ -320,17 +320,18 @@ const Services = () => {
           Our Services
         </h2>
         
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-8 sm:mb-12 px-4">
           {services.map((service, index) => (
             <button
               key={index}
               onClick={() => setSelectedService(service.title)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-300 border
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300 border
                 ${selectedService === service.title 
                   ? 'bg-[#00D1FF] text-white border-[#00D1FF]' 
-                  : 'bg-[#1E1E2E] text-white border-[#00D1FF]/20 hover:bg-[#00D1FF]'}`}
+                  : 'bg-[#1E1E2E] text-white border-[#00D1FF]/20 hover:bg-[#00D1FF] hover:border-[#00D1FF]'
+                }`}
             >
-              <service.icon className={`${selectedService === service.title ? 'text-white' : 'text-[#00D1FF]'}`} />
+              <service.icon className={`${selectedService === service.title ? 'text-white' : 'text-[#00D1FF] group-hover:text-white'}`} />
               <span>{service.title}</span>
             </button>
           ))}

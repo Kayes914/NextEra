@@ -8,11 +8,10 @@ import Footer from './components/Footer'
 
 export const App = () => {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16 overflow-x-hidden">
       <Navbar />
       <Hero />
       <Services />
-
       <About />
       <Testimonials />
       <Footer />

@@ -91,7 +91,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#181824]" id="home">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#181824] px-4 sm:px-6" id="home">
       {/* Particle Canvas Background */}
       <canvas
         ref={canvasRef}
@@ -110,15 +110,15 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00D1FF] via-white to-[#00D1FF]">
-          Innovating Beyond Boundaries
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00D1FF] via-white to-[#00D1FF]">
+            Innovating Beyond Boundaries
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0">
             We craft innovative digital solutions that help businesses thrive in the modern world.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0">
             <motion.a 
               href="#services" 
               className="px-8 py-4 bg-gradient-to-r from-[#00D1FF] to-[#0088FF] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#00D1FF]/20 transition-all duration-300 transform hover:-translate-y-1"
@@ -138,7 +138,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="mt-20 flex justify-center gap-8">
+          <div className="mt-12 sm:mt-20 flex justify-center gap-6 sm:gap-8">
             {[
               { icon: FaGithub, href: 'https://github.com/yourusername' },
               { icon: FaLinkedin, href: 'https://www.linkedin.com/company/nextera-inc' },
@@ -164,7 +164,7 @@ const Hero = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3">
         <motion.div
           animate={{
             y: [0, -10, 0],
