@@ -124,30 +124,27 @@ const About = () => {
                 We're Here to Make It Happen!
               </p>
             </div>
-            <div className="flex flex-col justify-between h-[400px]">
-              <p className="text-gray-300 text-lg leading-relaxed">
-              At NextEra, we specialize in delivering innovative IT solutions that drive business success. Founded in 2024, we help organizations streamline operations, enhance security, and embrace digital transformation through our expertise in Software Development, UI UX, App Development, and IT consulting].
+            <div className="grid grid-rows-[1fr,auto] gap-8 min-h-[400px]">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                At NextEra, we specialize in delivering innovative IT solutions that drive business success. Founded in 2024, we help organizations streamline operations, enhance security, and embrace digital transformation through our expertise in Software Development, UI UX, App Development, and IT consulting.
 
-Our team of skilled professionals is committed to providing high-quality, tailored solutions that meet the unique needs of each client. We prioritize collaboration, transparency, and long-term partnerships, ensuring that our clients are equipped to thrive in a rapidly evolving digital landscape.
-
-Let us help you unlock the potential of technology to accelerate your business growth and achieve your goals.
+                Our team of skilled professionals is committed to providing high-quality, tailored solutions that meet the unique needs of each client. We prioritize collaboration, transparency, and long-term partnerships, ensuring that our clients are equipped to thrive in a rapidly evolving digital landscape.
               </p>
 
-              {/* Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="text-center p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
+                <div className="text-center p-4 sm:p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
                   <CountingNumber value={30} />
                   <p className="text-gray-300 font-medium text-sm">
                     Total Works
                   </p>
                 </div>
-                <div className="text-center p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
+                <div className="text-center p-4 sm:p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
                   <CountingNumber value={1} suffix=" Year" />
                   <p className="text-gray-300 font-medium text-sm">
                     Experience
                   </p>
                 </div>
-                <div className="text-center p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
+                <div className="text-center p-4 sm:p-6 rounded-lg bg-[#1E1E2E] border border-[#00D1FF]/20 shadow-lg hover:shadow-[#00D1FF]/20 transition duration-300">
                   <CountingNumber value={15} />
                   <p className="text-gray-300 font-medium text-sm">
                     Happy Clients

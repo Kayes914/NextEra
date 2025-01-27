@@ -84,7 +84,7 @@ const Testimonials = () => {
     <section className="w-full py-20 bg-[#181824] overflow-hidden" id="testimonials">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <div className="text-center relative mb-20">
+        <div className="text-center relative mb-16 sm:mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -115,8 +115,8 @@ const Testimonials = () => {
           </motion.div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto perspective-1000">
+        {/* Testimonials Grid - Update spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard 
               key={index}

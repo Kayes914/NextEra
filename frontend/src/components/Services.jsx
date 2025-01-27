@@ -207,12 +207,12 @@ const Services = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative flex items-center justify-center">
-              <div className="relative w-[500px] h-[500px] overflow-hidden rounded-2xl">
+            <div className="relative flex items-center justify-center w-full">
+              <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-2xl">
                 <img 
                   src={serviceImages['Web']}
                   alt="Web Development"
-                  className="w-full h-full object-scale-down"
+                  className="w-full h-full object-contain p-4 sm:p-8"
                 />
               </div>
             </div>
@@ -296,12 +296,12 @@ const Services = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative flex items-center justify-center">
-              <div className="relative w-[500px] h-[500px] overflow-hidden rounded-2xl">
+            <div className="relative flex items-center justify-center w-full">
+              <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-2xl">
                 <img 
                   src={serviceImages[selectedService]}
                   alt={titles[selectedService]}
-                  className="w-full h-full object-scale-down"
+                  className="w-full h-full object-contain p-4 sm:p-8"
                 />
               </div>
             </div>
@@ -338,7 +338,7 @@ const Services = () => {
         </div>
 
         {selectedService && (
-          <div className="grid md:grid-cols-2 gap-12 mt-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mt-8">
             {renderServiceContent()}
           </div>
         )}
