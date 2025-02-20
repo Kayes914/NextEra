@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 
+// Add this initialization
+emailjs.init("eWlNTDt-6h5YJUFx0");
+
 const Contact = () => {
   const canvasRef = useRef(null);
   const form = useRef();
@@ -97,9 +100,16 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     
+    console.log("Form data:", {
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      subject: form.current.subject.value,
+      message: form.current.message.value
+    });
+    
     emailjs.sendForm(
       'service_0mdwfwk', // Replace with your Service ID
-      'template_z1a0ki4', // Replace with your Template ID
+      'template_y1uzc2q', // Replace with your Template ID
       form.current,
       'eWlNTDt-6h5YJUFx0' // Replace with your Public Key
     )
