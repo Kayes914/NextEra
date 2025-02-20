@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { FaGithub, FaLinkedin, FaFacebookF, FaWhatsapp } from 'react-icons/fa'
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
 
@@ -74,12 +73,12 @@ const Footer = () => {
               © {currentYear} NextEra. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 text-sm hover:text-[#00D1FF] transition-colors duration-300">
+              <a href="#" className="text-gray-400 text-sm hover:text-[#00D1FF] transition-colors duration-300">
                 Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-gray-400 text-sm hover:text-[#00D1FF] transition-colors duration-300">
+              </a>
+              <a href="#" className="text-gray-400 text-sm hover:text-[#00D1FF] transition-colors duration-300">
                 Terms of Service
-              </Link>
+              </a>
             </div>
           </div>
         </div>
