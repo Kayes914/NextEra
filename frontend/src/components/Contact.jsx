@@ -89,7 +89,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#181824] pt-20">
+    <section id="contact" className="relative min-h-screen bg-[#181824]">
       {/* Particle Canvas Background */}
       <canvas
         ref={canvasRef}
@@ -99,7 +99,7 @@ const Contact = () => {
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#181824]/50 to-[#181824]/90" />
-    </div>
+    </section>
   )
 }
 
