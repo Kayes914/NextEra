@@ -7,7 +7,7 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-export const App = () => {
+const App = () => {
   return (
     <div className="min-h-screen pt-16 overflow-x-hidden">
       <Navbar />
