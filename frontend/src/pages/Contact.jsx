@@ -1,11 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 const Contact = () => {
   const canvasRef = useRef(null);
-  const form = useRef();
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ show: false, success: false, message: '' });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -92,27 +89,6 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setStatus({
-        show: true,
-        success: true,
-        message: 'Thank you for your message. We will get back to you soon!'
-      });
-      form.current.reset();
-      setLoading(false);
-      
-      // Hide status message after 5 seconds
-      setTimeout(() => {
-        setStatus({ show: false, success: false, message: '' });
-      }, 5000);
-    }, 1000);
-  };
-
   return (
     <div className="relative min-h-screen bg-[#181824] pt-20">
       {/* Particle Canvas Background */}
@@ -169,7 +145,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="md:col-span-2">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 sm:p-7">
-                  <form ref={form} onSubmit={handleSubmit} className="space-y-4">
+                  <form className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div>
@@ -178,9 +154,7 @@ const Contact = () => {
                         </label>
                         <input
                           type="text"
-                          name="name"
                           id="name"
-                          required
                           className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                             text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
                           placeholder="John Doe"
@@ -194,9 +168,7 @@ const Contact = () => {
                         </label>
                         <input
                           type="email"
-                          name="email"
                           id="email"
-                          required
                           className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                             text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
                           placeholder="john@example.com"
@@ -211,9 +183,7 @@ const Contact = () => {
                       </label>
                       <input
                         type="text"
-                        name="subject"
                         id="subject"
-                        required
                         className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                           text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
                         placeholder="Project Discussion"
@@ -226,9 +196,7 @@ const Contact = () => {
                         Message
                       </label>
                       <textarea
-                        name="message"
                         id="message"
-                        required
                         rows="5"
                         className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                           text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
@@ -236,26 +204,15 @@ const Contact = () => {
                       ></textarea>
                     </div>
 
-                    {/* Status Message */}
-                    {status.show && (
-                      <div className={`p-3 rounded-md ${status.success ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
-                        {status.message}
-                      </div>
-                    )}
-
                     {/* Submit Button */}
                     <div>
                       <button
                         type="submit"
-                        disabled={loading}
                         className="w-full sm:w-auto px-7 py-3 bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] 
                           text-white rounded-md font-medium text-base hover:shadow-lg transform hover:scale-[1.02] 
-                          transition-all duration-300 active:scale-[0.98] group relative overflow-hidden
-                          disabled:opacity-70 disabled:cursor-not-allowed"
+                          transition-all duration-300 active:scale-[0.98] group relative overflow-hidden"
                       >
-                        <span className="relative z-10">
-                          {loading ? 'Sending...' : 'Send Message'}
-                        </span>
+                        <span className="relative z-10">Send Message</span>
                         <div 
                           className="absolute inset-0 -translate-x-full hover:translate-x-full 
                           bg-gradient-to-r from-transparent via-white/20 to-transparent 
