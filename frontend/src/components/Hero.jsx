@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebookF, FaWhatsapp } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -128,17 +127,14 @@ const Hero = () => {
             >
               Explore Our Services
             </motion.a>
-            <motion.div
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="inline-block px-8 py-4 border-2 border-[#00D1FF] text-[#00D1FF] font-semibold rounded-full hover:bg-[#00D1FF]/10 transition-all duration-300 transform hover:-translate-y-1"
             >
-              <Link 
-                to="/contact" 
-                className="inline-block px-8 py-4 border-2 border-[#00D1FF] text-[#00D1FF] font-semibold rounded-full hover:bg-[#00D1FF]/10 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Get Started
-              </Link>
-            </motion.div>
+              Get Started
+            </motion.a>
           </div>
 
           {/* Social Links */}

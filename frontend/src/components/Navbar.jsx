@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +7,7 @@ const Navbar = () => {
   // Handle scroll for active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'testimonials'];
+      const sections = ['home', 'services', 'about', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY;
 
       sections.forEach(section => {
@@ -32,16 +31,17 @@ const Navbar = () => {
     { href: '#services', label: 'Services' },
     { href: '#about', label: 'About Us' },
     { href: '#testimonials', label: 'Testimonials' },
+    { href: '#contact', label: 'Contact Us' }
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-[#181824] shadow-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/*  */}
+          {/* Logo */}
           <div className="flex-shrink-0">
             <a 
-              href="/" 
+              href="#home" 
               className="text-2xl font-bold text-white hover:text-[#00D1FF] transition-colors"
             >
               NextEra
@@ -92,24 +92,6 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-
-          {/* Contact Button - Desktop */}
-          <div className="hidden md:block">
-            <Link 
-              to="/contact"
-              className="group relative inline-flex items-center justify-center px-8 py-2.5 rounded-md
-                bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] text-white font-medium
-                overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg
-                active:scale-95 disabled:opacity-70"
-            >
-              <div className="relative z-10">Contact Us</div>
-              <div 
-                className="absolute inset-0 -translate-x-full hover:translate-x-full 
-                bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-              />
-            </Link>
-          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -131,23 +113,6 @@ const Navbar = () => {
                 {label}
               </a>
             ))}
-            <div className="pt-2 pb-3 px-4">
-              <Link 
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="group relative inline-flex items-center justify-center w-full px-8 py-2.5 rounded-md
-                  bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] text-white font-medium
-                  overflow-hidden transition-all duration-300 hover:scale-[1.02]
-                  active:scale-[0.98] disabled:opacity-70"
-              >
-                <div className="relative z-10">Contact Us</div>
-                <div 
-                  className="absolute inset-0 -translate-x-full hover:translate-x-full 
-                  bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                  transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-                />
-              </Link>
-            </div>
           </div>
         </div>
       </div>
