@@ -96,44 +96,45 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
-    
-    console.log("Form data:", {
-      user_name: form.current.user_name.value,
-      user_email: form.current.user_email.value,
+
+    // These should match your EmailJS configuration
+    const serviceId = 'service_0mdwfwk';
+    const templateId = 'template_y1uzc2q';
+    const publicKey = 'eWlNTDt-6h5YJUFx0';
+
+    emailjs.send(serviceId, templateId, {
+      from_name: form.current.user_name.value,
+      to_name: "Nextera Team",
+      from_email: form.current.user_email.value,
       subject: form.current.subject.value,
-      message: form.current.message.value
-    });
-    
-    emailjs.sendForm(
-      'service_0mdwfwk', // Replace with your Service ID
-      'template_y1uzc2q', // Replace with your Template ID
-      form.current,
-      'eWlNTDt-6h5YJUFx0' // Replace with your Public Key
-    )
-      .then((result) => {
-        setStatus({
-          show: true,
-          success: true,
-          message: 'Message sent successfully!'
-        });
-        form.current.reset();
-      })
-      .catch((error) => {
-        setStatus({
-          show: true,
-          success: false,
-          message: 'Failed to send message. Please try again.'
-        });
-      })
-      .finally(() => {
-        setLoading(false);
-        setTimeout(() => {
-          setStatus({ show: false, success: false, message: '' });
-        }, 5000);
+      message: form.current.message.value,
+    }, publicKey)
+    .then((result) => {
+      console.log("SUCCESS!", result.text);
+      setStatus({
+        show: true,
+        success: true,
+        message: 'Message sent successfully!'
       });
+      form.current.reset();
+    })
+    .catch((error) => {
+      console.log("FAILED...", error.text);
+      setStatus({
+        show: true,
+        success: false,
+        message: 'Failed to send message. Please try again.'
+      });
+    })
+    .finally(() => {
+      setLoading(false);
+      setTimeout(() => {
+        setStatus({ show: false, success: false, message: '' });
+      }, 5000);
+    });
   };
 
   return (
@@ -192,7 +193,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="md:col-span-2">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 sm:p-7">
-                  <form ref={form} onSubmit={handleSubmit} className="space-y-4">
+                  <form ref={form} onSubmit={sendEmail} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div>
