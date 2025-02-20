@@ -1,104 +1,94 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 const Contact = () => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationFrameId;
-    let particleCount = 100;
-    const maxParticles = 150;
-    const particleAddInterval = 100; // Add particles every 100ms
-    let lastParticleAddTime = 0;
-
-    // Set canvas size
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-
-    // Particle class
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 2 - 1;
-        this.speedY = Math.random() * 2 - 1;
-        this.color = `hsla(${190 + Math.random() * 20}, 100%, 70%, ${Math.random() * 0.5 + 0.3})`;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.size > 0.2) this.size -= 0.01;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    // Initialize particles
-    const init = () => {
-      particles = [];
-      for (let i = 0; i < 100; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    // Animation loop
-    const animate = () => {
-      const currentTime = Date.now();
-      
-      // Add particles gradually
-      if (particleCount < maxParticles && currentTime - lastParticleAddTime > particleAddInterval) {
-        particles.push(new Particle());
-        particleCount++;
-        lastParticleAddTime = currentTime;
-      }
-
-      ctx.fillStyle = 'rgba(24, 24, 36, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    init();
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', setCanvasSize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
-    <section id="contact" className="relative min-h-screen bg-[#181824]">
-      {/* Particle Canvas Background */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
-        style={{ opacity: 0.8 }}
-      />
+    <section id="contact" className="relative w-full py-20 bg-[#181824]">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Get In <span className="text-[#00D1FF]">Touch</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Have a project in mind? Let's talk about it. Fill out the form below and we'll get back to you as soon as possible.
+          </p>
+        </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#181824]/50 to-[#181824]/90" />
+        {/* Contact Form */}
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-[#1E1E2E]/50 backdrop-blur-sm rounded-lg p-8 border border-[#00D1FF]/10">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-white mb-2 text-sm">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-3 rounded-md bg-[#181824] border border-[#00D1FF]/20 
+                      text-white focus:outline-none focus:border-[#00D1FF] transition-colors"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-white mb-2 text-sm">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 rounded-md bg-[#181824] border border-[#00D1FF]/20 
+                      text-white focus:outline-none focus:border-[#00D1FF] transition-colors"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+
+              {/* Subject */}
+              <div>
+                <label htmlFor="subject" className="block text-white mb-2 text-sm">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  className="w-full px-4 py-3 rounded-md bg-[#181824] border border-[#00D1FF]/20 
+                    text-white focus:outline-none focus:border-[#00D1FF] transition-colors"
+                  placeholder="Project Discussion"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label htmlFor="message" className="block text-white mb-2 text-sm">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  className="w-full px-4 py-3 rounded-md bg-[#181824] border border-[#00D1FF]/20 
+                    text-white focus:outline-none focus:border-[#00D1FF] transition-colors"
+                  placeholder="Tell us about your project..."
+                ></textarea>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#00D1FF] to-[#0088FF] 
+                  text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#00D1FF]/20 
+                  transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

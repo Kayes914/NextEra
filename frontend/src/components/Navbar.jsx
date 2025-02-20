@@ -7,7 +7,7 @@ const Navbar = () => {
   // Handle scroll for active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'testimonials', 'contact'];
+      const sections = ['home', 'services', 'about', 'testimonials'];
       const scrollPosition = window.scrollY;
 
       sections.forEach(section => {
@@ -31,7 +31,6 @@ const Navbar = () => {
     { href: '#services', label: 'Services' },
     { href: '#about', label: 'About Us' },
     { href: '#testimonials', label: 'Testimonials' },
-    { href: '#contact', label: 'Contact Us' }
   ];
 
   return (
@@ -92,6 +91,24 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+
+          {/* Contact Button - Desktop */}
+          <div className="hidden md:block">
+            <a 
+              href="#contact"
+              className="group relative inline-flex items-center justify-center px-8 py-2.5 rounded-md
+                bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] text-white font-medium
+                overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg
+                active:scale-95 disabled:opacity-70"
+            >
+              <div className="relative z-10">Contact Us</div>
+              <div 
+                className="absolute inset-0 -translate-x-full hover:translate-x-full 
+                bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+              />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -113,6 +130,23 @@ const Navbar = () => {
                 {label}
               </a>
             ))}
+            <div className="pt-2 pb-3 px-4">
+              <a 
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="group relative inline-flex items-center justify-center w-full px-8 py-2.5 rounded-md
+                  bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] text-white font-medium
+                  overflow-hidden transition-all duration-300 hover:scale-[1.02]
+                  active:scale-[0.98] disabled:opacity-70"
+              >
+                <div className="relative z-10">Contact Us</div>
+                <div 
+                  className="absolute inset-0 -translate-x-full hover:translate-x-full 
+                  bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                  transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
