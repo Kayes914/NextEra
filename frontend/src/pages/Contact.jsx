@@ -1,9 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import emailjs from '@emailjs/browser'
-
-// Add this initialization
-emailjs.init("eWlNTDt-6h5YJUFx0");
 
 const Contact = () => {
   const canvasRef = useRef(null);
@@ -96,45 +92,25 @@ const Contact = () => {
     };
   }, []);
 
-  const sendEmail = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // These should match your EmailJS configuration
-    const serviceId = 'service_0mdwfwk';
-    const templateId = 'template_y1uzc2q';
-    const publicKey = 'eWlNTDt-6h5YJUFx0';
-
-    emailjs.send(serviceId, templateId, {
-      from_name: form.current.user_name.value,
-      to_name: "Nextera Team",
-      from_email: form.current.user_email.value,
-      subject: form.current.subject.value,
-      message: form.current.message.value,
-    }, publicKey)
-    .then((result) => {
-      console.log("SUCCESS!", result.text);
+    // Simulate form submission
+    setTimeout(() => {
       setStatus({
         show: true,
         success: true,
-        message: 'Message sent successfully!'
+        message: 'Thank you for your message. We will get back to you soon!'
       });
       form.current.reset();
-    })
-    .catch((error) => {
-      console.log("FAILED...", error.text);
-      setStatus({
-        show: true,
-        success: false,
-        message: 'Failed to send message. Please try again.'
-      });
-    })
-    .finally(() => {
       setLoading(false);
+      
+      // Hide status message after 5 seconds
       setTimeout(() => {
         setStatus({ show: false, success: false, message: '' });
       }, 5000);
-    });
+    }, 1000);
   };
 
   return (
@@ -193,17 +169,17 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="md:col-span-2">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 sm:p-7">
-                  <form ref={form} onSubmit={sendEmail} className="space-y-4">
+                  <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div>
-                        <label htmlFor="user_name" className="block text-white mb-1.5 text-base">
+                        <label htmlFor="name" className="block text-white mb-1.5 text-base">
                           Name
                         </label>
                         <input
                           type="text"
-                          name="user_name"
-                          id="user_name"
+                          name="name"
+                          id="name"
                           required
                           className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                             text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
@@ -213,13 +189,13 @@ const Contact = () => {
 
                       {/* Email */}
                       <div>
-                        <label htmlFor="user_email" className="block text-white mb-1.5 text-base">
+                        <label htmlFor="email" className="block text-white mb-1.5 text-base">
                           Email
                         </label>
                         <input
                           type="email"
-                          name="user_email"
-                          id="user_email"
+                          name="email"
+                          id="email"
                           required
                           className="w-full px-3.5 py-2.5 rounded-md bg-white/10 border border-gray-600 
                             text-white focus:outline-none focus:border-[#00D1FF] transition-colors text-base"
