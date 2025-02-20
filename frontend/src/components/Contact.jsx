@@ -28,15 +28,15 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_0mdwfwk', // Service ID
-        'template_z1a0ki4', // Template ID
+        'service_0mdwfwk',
+        'template_z1a0ki4',
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          user_name: formData.name,
+          user_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'eWlNTDt-6h5YJUFx0' // Public Key
+        'eWlNTDt-6h5YJUFx0'
       );
 
       setStatus({
