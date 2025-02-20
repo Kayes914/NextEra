@@ -105,7 +105,7 @@ const About = () => {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#00D1FF] to-[#00A3FF] rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
               <img
-                src="/screen1.jpg"
+                src="/aboutus.jpg"
                 alt="About Us"
                 className="relative rounded-lg shadow-xl w-full h-[400px] object-cover transform transition duration-500 hover:scale-[1.01]"
               />

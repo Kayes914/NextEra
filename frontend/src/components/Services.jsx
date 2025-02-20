@@ -207,13 +207,15 @@ const Services = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative flex items-center justify-center w-full">
-              <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-2xl">
-                <img 
-                  src={serviceImages['Web']}
-                  alt="Web Development"
-                  className="w-full h-full object-contain p-4 sm:p-8"
-                />
+            <div className="relative flex items-center justify-center w-full h-full">
+              <div className="relative w-full h-[400px] bg-[#1E1E2E]/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-[#00D1FF]/10">
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <img 
+                    src={serviceImages['Web']}
+                    alt="Web Development"
+                    className="max-w-full max-h-full object-contain filter drop-shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </>
@@ -296,13 +298,15 @@ const Services = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative flex items-center justify-center w-full">
-              <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-2xl">
-                <img 
-                  src={serviceImages[selectedService]}
-                  alt={titles[selectedService]}
-                  className="w-full h-full object-contain p-4 sm:p-8"
-                />
+            <div className="relative flex items-center justify-center w-full h-full">
+              <div className="relative w-full h-[400px] bg-[#1E1E2E]/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-[#00D1FF]/10">
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <img 
+                    src={serviceImages[selectedService]}
+                    alt={titles[selectedService]}
+                    className="max-w-full max-h-full object-contain filter drop-shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </>
